@@ -6,7 +6,7 @@ const blockHeight = 20;
 const ballDiameter = 20;
 const boardWidth = 560;
 const boardHeight = 300;
-let timerId;
+
 let gameIsRunning = true;
 let xDirection = 2;
 let yDirection = 2;
@@ -17,6 +17,7 @@ let userCurrentPosition = userStart;
 const ballStart = [270, 40];
 let ballCurrentPosition = ballStart;
 
+let timerId;
 class Block {
     constructor(x, y) {
         this.bottomLeft = [x, y];
@@ -46,6 +47,7 @@ const blocks = [
     new Block(450, 210),
 ];
 
+//Legge til blokker
 function addBlocks() {
     for (let i = 0; i < blocks.length; i++) {
         const block = document.createElement('div');
@@ -57,25 +59,25 @@ function addBlocks() {
 }
 addBlocks();
 
-// Add user
+// Legg til bruker
 const user = document.createElement('div');
 user.classList.add('user');
 drawUser();
 grid.appendChild(user);
 
-// Draw user
+// Bruker
 function drawUser() {
     user.style.left = userCurrentPosition[0] + 'px';
     user.style.bottom = userCurrentPosition[1] + 'px';
 }
 
-// Draw Ball
+// Ball
 function drawBall() {
     ball.style.left = ballCurrentPosition[0] + 'px';
     ball.style.bottom = ballCurrentPosition[1] + 'px';
 }
 
-// Move user
+// Flytt bruker
 function moveUser(e) {
     switch (e.key) {
         case 'ArrowLeft':
@@ -96,23 +98,23 @@ function moveUser(e) {
 
 document.addEventListener('keydown', moveUser);
 
-// Add ball
+// Legg til ball
 const ball = document.createElement('div');
 ball.classList.add('ball');
 drawBall();
 grid.appendChild(ball);
 
-// Move Ball
+// Flytt ball
 function moveBall() {
     ballCurrentPosition[0] += xDirection;
     ballCurrentPosition[1] += yDirection;
     drawBall();
     checkForBlockCollision();
     checkForUserCollision();
-    checkForCollisions(); // Call checkForCollisions to check for collisions
+    checkForCollisions(); 
 }
 
-// Check for block collisions
+// sjekk om den treffer blokker
 function checkForBlockCollision() {
     for (let i = 0; i < blocks.length; i++) {
         if (
@@ -135,19 +137,20 @@ function checkForBlockCollision() {
         }
     }
 }
-
-// Check for user collision
+// Hei Emma :D Jeg tror det kan løses ved å sette yDirection til 2 istedenor -yDirection,
+// siden vi aldri ønsker at den skal gå ned når den er i blokken. Mvh. Jørgen.
+// Sjekk om den treffer bruker
 function checkForUserCollision() {
     if (
         (ballCurrentPosition[0] > userCurrentPosition[0] && ballCurrentPosition[0] < userCurrentPosition[0] + blockWidth) &&
         (ballCurrentPosition[1] > userCurrentPosition[1] && ballCurrentPosition[1] < userCurrentPosition[1] + blockHeight)
     ) {
         console.log('Kollisjon med bruker');
-        yDirection = -yDirection;
+        yDirection = 2;
     }
 }
 
-// Check for Collisions
+
 function checkForCollisions() {
     if (ballCurrentPosition[0] >= (boardWidth - ballDiameter) || ballCurrentPosition[0] <= 0) {
         xDirection = -xDirection;
@@ -163,6 +166,8 @@ function checkForCollisions() {
         document.removeEventListener('keydown', moveUser);
     }
 }
+
+// Starter spillet
 function startGame (){
     moveBall();
     timerId = setInterval(moveBall, 20); 

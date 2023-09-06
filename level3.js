@@ -29,27 +29,33 @@ class Block {
 //PLUSS PÅ 70 HUSK 
 const blocks = [
     new Block(10, 270),
-    new Block(90, 270),
-    new Block(170, 270),
+    new Block(70, 270),
+    new Block(130, 270),
+    new Block(190, 270),
     new Block(250, 270),
-    new Block(330, 270),
-    new Block(410, 270),
+    new Block(310, 270),
+    new Block(370, 270),
+    new Block(430, 270),
     new Block(490, 270),
 
     new Block(10, 240),
-    new Block(90, 240),
-    new Block(170, 240),
+    new Block(70, 240),
+    new Block(130, 240),
+    new Block(190, 240),
     new Block(250, 240),
-    new Block(330, 240),
-    new Block(410, 240),
+    new Block(310, 240),
+    new Block(370, 240),
+    new Block(430, 240),
     new Block(490, 240),
 
     new Block(10, 210),
-    new Block(90, 210),
-    new Block(170, 210),
+    new Block(70, 210),
+    new Block(130, 210),
+    new Block(190, 210),
     new Block(250, 210),
-    new Block(330, 210),
-    new Block(410, 210),
+    new Block(310, 210),
+    new Block(370, 210),
+    new Block(430, 210),
     new Block(490, 210),
 ];
 
@@ -174,5 +180,5 @@ function checkForCollisions() {
 //Starter spillet
 function startGame (){
     moveBall();
-    timerId = setInterval(moveBall, 15); 
+    timerId = setInterval(moveBall, 14); 
 }

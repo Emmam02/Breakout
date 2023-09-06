@@ -1,0 +1,59 @@
+
+    * {
+        font-family: 'Trebuchet MS', sans-serif;
+        font-weight: bolder;
+        font-size: x-large;
+    }
+    
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 200px;
+    }
+    #score {
+        background-color: lightgrey;
+        margin-right: 90% ;
+    }
+    #start {
+        background-color: lightgrey;
+        margin-right: 90% ;
+    }
+    #restart {
+        background-color: lightgrey;
+        margin-right: 90% ;
+    }
+    #nextLevel {
+        background-color: lightgrey;
+        margin-right: 90% ;
+    }
+    .grid {
+        position: absolute;
+        width: 570px;
+        height: 300px;
+        border: 2px solid black;
+        margin-top: 80px;
+    }
+    
+    .block {
+        position: absolute;
+        background-color: rgb(30, 255, 0);
+        width: 70px;
+        height: 20px;
+    }
+    
+    .user {
+        position: absolute;
+        background-color: rgb(128, 58, 0);
+        width: 100px;
+        height: 20px;
+    }
+    
+    .ball {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: red;
+    }
